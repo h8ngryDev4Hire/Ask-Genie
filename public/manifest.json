@@ -1,12 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "AI Page Summarizer",
-  "description": "Cuts down on time spent on reading pages when on the search for information",
+  "name": "Ask Genie ~ Your AI Webpage Summarizer",
+  "description": "In a pinch for an anwser and don't have the time to read thru web page after web page? Ask Genie! An extension that summarizes the webpage for you, in a single paragraph. Cutting down your read time to more than 50%! NOTE: An OpenAI API key is required for usage.",
   "version": "1.0",
   "action": {
 	"default_icon": {
 		"48": "icon-disabled.png"
 	}
+  },
+  "icons": {
+	"128": "icon-enabled.png"
   },
   "options_page":  "main.html",
   "permissions": ["storage", "tabs", "activeTab" ],

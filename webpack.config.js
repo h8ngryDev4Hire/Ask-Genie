@@ -21,10 +21,10 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(__dirname, "public"),
-          to: path.resolve(__dirname, "prototype")
+          to: path.resolve(__dirname, "ask-genie")
        }, {
 	  from: path.resolve(__dirname, "src", "setup.json"),
-	  to: path.resolve(__dirname, "prototype")
+	  to: path.resolve(__dirname, "ask-genie")
        }
       ]
     }),
@@ -32,7 +32,7 @@ module.exports = {
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'prototype'),
+    path: path.resolve(__dirname, 'ask-genie'),
     clean: true,
   },
   module: {
