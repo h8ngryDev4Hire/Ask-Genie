@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "AI Page Summarizer",
+  "description": "Cuts down on time spent on reading pages when on the search for information",
+  "version": "1.0",
+  "action": {
+	"default_icon": {
+		"48": "icon-disabled.png"
+	}
+  },
+  "options_page":  "main.html",
+  "permissions": ["storage", "tabs", "activeTab" ],
+  "host_permissions": ["https://api.openai.com/v1/chat/completions", "<all_urls>" ],
+ "background": {
+	"service_worker": "background.bundle.js"
+  },
+  "content_scripts": [{
+	"matches": ["https://*/*", "http://*/*"],
+	"js": ["jquery.min.js", "content.bundle.js"],
+	"run_at": "document_end"
+  }]
+}
