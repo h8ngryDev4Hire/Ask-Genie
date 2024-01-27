@@ -48,6 +48,7 @@ const grabPageContents = () => {
 const injectOverlayElements = () => {
   const overlay = $('<div>')
     .attr('id', 'dimOverlay')
+    .addClass("ask-genie")
     .css({
       position: 'fixed',
       top: '0',
@@ -69,6 +70,7 @@ const injectOverlayElements = () => {
 
   const banner = $('<div>')
     .attr('id', 'chat-completions-banner')
+    .addClass("ask-genie")
     .css({
       width: '100%',
       height: '0',	
@@ -79,13 +81,14 @@ const injectOverlayElements = () => {
       top: '0', // Initially set top position above the viewport
       left: '0',
       zIndex: '9999',
-      //padding: '20px', //TODO: add padding after banner finishes animation sequence
       display: 'block',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
       boxSizing: 'border-box',
-      transition: 'height 0.5s ease-in-out', // Add a sliding transition
+      transition: 'height 0.5s ease-in-out',
+      fontFamily: 'Helvetica',
+      fontWeight: '100'
     })
 
 
@@ -93,6 +96,7 @@ const injectOverlayElements = () => {
 
   const bannerText = $('<div>')
     .attr('id', 'banner-text')
+    .addClass("ask-genie")
     .css({
       color: 'white',
       width: '100%',
@@ -101,6 +105,7 @@ const injectOverlayElements = () => {
 
   const button = $('<button>')
     .attr('id', 'banner-button')
+    .addClass("ask-genie")
     .text('Done')
     .css({
       marginTop: '10px',
@@ -124,6 +129,7 @@ const injectOverlayElements = () => {
 
   const progressBarText = $('<div>')
     .attr('id', 'progress-bar-text')
+    .addClass("ask-genie")
     .css({
       opacity: '1',
     })
@@ -131,6 +137,7 @@ const injectOverlayElements = () => {
 
   const progressBar = $('<div>')
     .attr('id', 'progress-bar')
+    .addClass("ask-genie")
     .css({
       width: '0%',
       height: '10px',
@@ -138,6 +145,8 @@ const injectOverlayElements = () => {
       transition: 'width 1s ease-in-out', // Fade-in and fade-out transition
     })
     .append(progressBarText);
+
+  $(".ask-genie").css("font-family", "Helvetica")
 
   return {
     overlay: overlay.get(0),
@@ -160,9 +169,11 @@ const injectOverlayElements = () => {
 
 const  apiKeyRequiredNotification =  () => {
 	const message = $('<p>')
+		.addClass('ask-genie')
 		.html('An OpenAI API Key is required! Click here to activate this Extension!')
 
 	const button = $('<button>').text("Options")
+		.addClass('ask-genie')
 		.css({
 			"background-color": "white",
 			"color": "black",
@@ -177,6 +188,7 @@ const  apiKeyRequiredNotification =  () => {
 
 	const notification = $('<div>')
 		.attr('id', 'no-key-notification')
+		.addClass('ask-genie')
 		.css({
 			width: '100%',
 			height: 'auto',
@@ -186,10 +198,13 @@ const  apiKeyRequiredNotification =  () => {
 			textAlign: 'center',
 			zIndex: '9999',
 			position: 'fixed',
+			fontFamily: 'Helvetica',
+			fontWeight: '100'
 		}).append(message).append(button)
 
 	$('body').prepend(notification)
 
+	$(".ask-genie").css("font-family", "Helvetica")
 	debugger
 	setTimeout(()=>{
 		$(notification).remove()
